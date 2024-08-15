@@ -18,3 +18,4 @@ def index(request):
 
 class ManufacturerListView(generic.ListView):
     model = Manufacturer
+    queryset = Manufacturer.objects.all().order_by("name")

@@ -4,7 +4,7 @@ from .views import index, ManufacturerListView
 
 urlpatterns = [
     path("", index, name="index"),
-    path("", ManufacturerListView.as_view(), name="manufacture_list_view")
+    path("manufacturers/", ManufacturerListView.as_view(), name="manufacture_list_view")
 ]
 
 app_name = "taxi"
