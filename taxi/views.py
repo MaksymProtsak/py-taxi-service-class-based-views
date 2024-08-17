@@ -38,3 +38,9 @@ class DriverListView(generic.ListView):
 
 class DriverDetailView(generic.DetailView):
     model = Driver
+
+    def get_context_data(self, **kwargs):
+        user_id = kwargs["object"].id
+        cars = Car.objects.prefetch_related("drivers").filter(drivers=user_id)
+        driver = Driver.objects.get(id=user_id)
+        return {"cars": cars, "driver": driver}
